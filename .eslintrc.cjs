@@ -1,24 +1,27 @@
 /* eslint-disable no-magic-numbers */
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const prettierConfig = require('./.prettierrc.cjs')
+
 module.exports = {
     env: {
         browser: true,
         es2021: true,
-        node: true
+        node: true,
     },
     extends: [
         'eslint:recommended',
         'plugin:@typescript-eslint/recommended',
-        'plugin:vue/vue3-essential'
+        'plugin:vue/vue3-essential',
+        '@vue/eslint-config-prettier',
     ],
     parserOptions: {
         ecmaVersion: 'latest',
         parser: '@typescript-eslint/parser',
-        sourceType: 'module'
+        sourceType: 'module',
     },
-    plugins: [
-        '@typescript-eslint', 'vue'
-    ],
+    plugins: ['@typescript-eslint', 'vue'],
     rules: {
+        'prettier/prettier': ['error', prettierConfig],
         'vue/html-indent': [
             'error',
             4,
@@ -27,36 +30,32 @@ module.exports = {
                 baseIndent: 1,
                 closeBracket: 0,
                 alignAttributesVertically: true,
-                ignores: []
-            }
+                ignores: [],
+            },
         ],
-        'vue/max-attributes-per-line': ['error',
-            {
-                singleline: {
-                    max: 3
-                },
-                multiline: {
-                    max: 1
-                }
-            }
+        indent: [
+            // 4个空格缩进
+            'error',
+            4,
         ],
-        indent: [ // 4个空格缩进
-            'error', 4
+        'linebreak-style': ['error', 'unix'],
+        quotes: [
+            // 单引号
+            'error',
+            'single',
         ],
-        'linebreak-style': [
-            'error', 'unix'
-        ],
-        quotes: [ // 单引号
-            'error', 'single'
-        ],
-        semi: [ // 分号结束
-            'error', 'never'
+        semi: [
+            // 分号结束
+            'error',
+            'never',
         ],
         'no-promise-executor-return': 'error', // promise不能返回值
         'no-self-compare': 'error', // 不能和自己对比
         'arrow-body-style': ['error', 'as-needed'], // 只能判断是否省略{}
-        camelcase: [ // 强制驼峰命名
-            'error', {properties: 'always'}
+        camelcase: [
+            // 强制驼峰命名
+            'error',
+            { properties: 'always' },
         ],
         curly: 'error', // if不能省略 {}
         'default-param-last': 'error', // 默认参数放最后
@@ -72,14 +71,15 @@ module.exports = {
         'no-extra-label': 'error', // 禁止使用不必要的label
         'no-labels': 'error', // 禁止使用label
         'no-lonely-if': 'error', // 禁止只有单独的if逻辑
-        'no-magic-numbers': [ // 禁止魔数
+        'no-magic-numbers': [
+            // 禁止魔数
             'error',
             {
                 ignore: [0, 1], // 忽略01，
                 ignoreArrayIndexes: true, // 忽略数组索引
                 ignoreDefaultValues: true, // 忽略默认参数
-                enforceConst: true // 用const声明
-            }
+                enforceConst: true, // 用const声明
+            },
         ],
         'no-multi-assign': 'error', // 不要链式声明赋值
         'no-mixed-operators': 'error', // 禁止混合二元运算符
@@ -88,22 +88,16 @@ module.exports = {
         'no-var': 'error', // 不要用var
         'prefer-arrow-callback': 'error', // 回调函数用箭头函数，避免this心智负担
         'prefer-const': 'error', // 不重新赋值的变量用const
-        'prefer-destructuring': [ // 强制对象解构，数组可以不用
+        'prefer-destructuring': [
+            // 强制对象解构，数组可以不用
             'error',
             {
                 object: true,
-                array: false
-            }
+                array: false,
+            },
         ],
         'prefer-template': 'error', // 优先使用模板字符串
         'quote-props': ['error', 'as-needed'], // 引用时在需要的时候加上""
-        'array-element-newline': [ // 数组项的换行
-            'error',
-            {
-                multiline: true, // 如果项本身需要换行就一定要换行
-                minItems: 3 // 达到这个数才换行
-            }
-        ],
         'arrow-parens': ['error', 'as-needed'], // 箭头函数需要的时候才加括号
         'arrow-spacing': 'error', // 箭头函数前后需要空格
         'block-spacing': ['error', 'always'], // 块需要空格
@@ -118,16 +112,9 @@ module.exports = {
             'error',
             {
                 mode: 'strict', // 在对象字面的冒号前后强制执行一个空格
-            }
+            },
         ],
         'keyword-spacing': 'error', // 关键字前后必须有空格
-        'lines-around-comment': ['error', {beforeLineComment: true}], // 注释前必须有空行
-        'max-len': [
-            'error',
-            {
-                code: 100 // 我屏幕大...
-            }
-        ],
         'newline-per-chained-call': 'error', // 链式调用超过2个换行
         'no-multi-spaces': 'error', // 不要多余空格
         'no-multiple-empty-lines': 'error', // 不要多余空行
@@ -139,10 +126,10 @@ module.exports = {
             {
                 blankLine: 'always',
                 prev: '*',
-                next: 'return' // return之前有空格
-            }
+                next: 'return', // return之前有空格
+            },
         ],
         'space-infix-ops': 'error', // 运算符前后需要空格
-        'wrap-iife': ['error', 'inside']
-    }
+        'wrap-iife': ['error', 'inside'],
+    },
 }
