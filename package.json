@@ -12,7 +12,8 @@
         "stylelint": "npx stylelint \"src/**/*.vue\" \"src/**/*.less\"",
         "stylelint:fix": "npx stylelint --fix \"src/**/*.vue\" \"src/**/*.less\"",
         "pre-commit": "vue-tsc && lint-staged",
-        "prepare": "husky install"
+        "prepare": "husky install",
+        "commit": "git-cz"
     },
     "dependencies": {
         "@element-plus/icons-vue": "^2.1.0",
