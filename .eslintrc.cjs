@@ -22,6 +22,7 @@ module.exports = {
     plugins: ['@typescript-eslint', 'vue'],
     rules: {
         'prettier/prettier': ['error', prettierConfig],
+        'vue/multi-word-component-names': 'off',
         'vue/html-indent': [
             'error',
             4,
@@ -115,7 +116,6 @@ module.exports = {
             },
         ],
         'keyword-spacing': 'error', // 关键字前后必须有空格
-        'newline-per-chained-call': 'error', // 链式调用超过2个换行
         'no-multi-spaces': 'error', // 不要多余空格
         'no-multiple-empty-lines': 'error', // 不要多余空行
         'no-trailing-spaces': 'error', // 行尾不要有空格
