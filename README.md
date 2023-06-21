@@ -22,3 +22,8 @@ todo:
 2. more operator
 3. 多行筛选
 4. pro-table
+5. 富文本编辑器、md编辑器
+6. 终端
+7. websocket
+8. echarts
+9. x6/g6
