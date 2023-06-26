@@ -27,3 +27,4 @@ todo:
 7. websocket
 8. echarts
 9. x6/g6
+10. sentry
