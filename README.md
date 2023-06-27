@@ -28,3 +28,4 @@ todo:
 8. echarts
 9. x6/g6
 10. sentry
+11. 拖拉卡片
