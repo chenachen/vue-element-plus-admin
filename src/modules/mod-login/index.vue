@@ -6,11 +6,7 @@
     </div>
 </template>
 
-<script setup lang="ts">
-import { ref } from 'vue'
-
-const a = ref('a')
-</script>
+<script setup lang="ts"></script>
 
 <style lang="less" scoped>
 .login-container {
@@ -22,6 +18,14 @@ const a = ref('a')
         width: 450px;
         height: 500px;
         background-color: var(--bg-color);
+
+        &__title {
+            height: 80px;
+            line-height: 80px;
+            font-size: 26px;
+
+            @apply font-bold text-center;
+        }
     }
 }
 </style>
